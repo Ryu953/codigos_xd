@@ -138,8 +138,8 @@ public class RegisterUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                String userGmail = userGmailJLabel.getText(); 
-                String userPassWord = userConfirPasswordJLabel.getText();
+                String userGmail = userGmailTextField.getText(); 
+                String userPassWord = userConfirPasswordTextField.getText();
                 String userId = userIdTextField.getText();
                 
                 //Usa las variables UserName y userPassword para mandarlo a la base de datose

@@ -70,9 +70,9 @@ public class LoginUI extends JFrame {
         labelsPanel.add(userPassWordJLabel);
 
         // JPasswordField para la contraseña
-        JPasswordField userPasswordField = new JPasswordField();
+        JTextField userPasswordField = new JTextField();
         userPasswordField.setMaximumSize(new Dimension(200, 30)); // Tamaño máximo del JPasswordField
-        userPasswordField.setAlignmentX(JPasswordField.LEFT_ALIGNMENT); // Alinear a la izquierda
+        userPasswordField.setAlignmentX(JTextField.LEFT_ALIGNMENT); // Alinear a la izquierda
         labelsPanel.add(userPasswordField);
 
         //title
@@ -113,7 +113,7 @@ public class LoginUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 
                 String userName = userNameTextField.getText(); 
-                String userPassWord = userPassWordJLabel.getText();
+                String userPassWord = userPasswordField.getText();
                 
                 //Usa las variables UserName y userPassword para mandarlo a la base de datose
 
