@@ -4,6 +4,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class CreateEventUI extends JFrame{
@@ -81,9 +84,7 @@ public class CreateEventUI extends JFrame{
         centerContentInputPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 0));
         centerContentInputPanel.setLayout(new BoxLayout(centerContentInputPanel, BoxLayout.Y_AXIS));
 
-        centerContentInputPanel.add(Box.createRigidArea(new Dimension(0, 50)));
-
-        JLabel dateOfEventLabel = new JLabel("Fecha del evento:");
+        JLabel dateOfEventLabel = new JLabel("Fecha del evento y hora:");
         dateOfEventLabel.setForeground(Color.white);
         dateOfEventLabel.setFont(newStyle);
         dateOfEventLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -111,7 +112,7 @@ public class CreateEventUI extends JFrame{
 
         centerContentInputPanel.add(Box.createRigidArea(new Dimension(0, 50)));
 
-        JLabel timeOfEventLabel = new JLabel("Hora:");
+        JLabel timeOfEventLabel = new JLabel("Titulo:");
         timeOfEventLabel.setForeground(Color.white);
         timeOfEventLabel.setFont(newStyle);
         timeOfEventLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -122,6 +123,20 @@ public class CreateEventUI extends JFrame{
         timeOfEventInput.setMaximumSize(new Dimension(200, 40));
         timeOfEventInput.setAlignmentX(Component.LEFT_ALIGNMENT);
         centerContentInputPanel.add(timeOfEventInput);
+
+        centerContentInputPanel.add(Box.createRigidArea(new Dimension(0, 50)));
+
+        JLabel descriptionOfEventLabel = new JLabel("Descripcion:");
+        descriptionOfEventLabel.setForeground(Color.white);
+        descriptionOfEventLabel.setFont(newStyle);
+        descriptionOfEventLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        centerContentInputPanel.add(descriptionOfEventLabel);
+
+        JTextField descriptionOfEventInput = new JTextField();
+        descriptionOfEventInput.setPreferredSize(new Dimension(200, 40));
+        descriptionOfEventInput.setMaximumSize(new Dimension(200, 40));
+        descriptionOfEventInput.setAlignmentX(Component.LEFT_ALIGNMENT);
+        centerContentInputPanel.add(descriptionOfEventInput);
 
         //---centerContentLoadImage---
 
@@ -141,6 +156,27 @@ public class CreateEventUI extends JFrame{
         centerContentPanel.add(centerContentTitlePanel, BorderLayout.NORTH);
         centerPanel.add(centerContentPanel, BorderLayout.CENTER);
         currentScreen.add(centerPanel, BorderLayout.CENTER);
+
+        buttonConfirm.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String fechaEvento = dateOfEventInput.getText();
+                String ubicacionEvento = locationOfEventInput.getText();
+                String tituloEvento = timeOfEventInput.getText();
+                String descripcionEvento = descriptionOfEventInput.getText();
+
+            
+                System.out.println("Fecha del evento: " + fechaEvento);
+                System.out.println("Ubicación del evento: " + ubicacionEvento);
+                System.out.println("Título del evento: " + tituloEvento);
+                System.out.println("Descripción del evento: " + descripcionEvento);
+            }
+
+
+        });
+    
+        centerContentButtonPanel.add(buttonConfirm);
 
         // ------------------------Refrest panel------------------------
 
