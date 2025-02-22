@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
 
 import javax.swing.*;
@@ -109,6 +111,26 @@ public class EditUserUI extends JFrame {
         confirButton.setForeground(Color.white);
         confirButton.setPreferredSize(new Dimension(300, 50));
         buttonContentPanel.add(confirButton);
+
+        confirButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                String userName = userNameTextField.getText(); 
+                String userPassWord = userPasswordTextField.getText();
+                String userId = userIdTextField.getText();
+
+                System.out.println(userName);
+                System.out.println(userId);
+                System.out.println(userPassWord);
+                
+                //Usa las variables UserName y userPassword para mandarlo a la base de datose
+
+            }
+
+
+        });
 
         centerContentPanel.add(labelcontentJPanel, BorderLayout.EAST);
         centerContentPanel.add(picturContentPanel, BorderLayout.WEST);
